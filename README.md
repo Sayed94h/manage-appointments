@@ -11,9 +11,9 @@ This is full feature web application created in ASP.Net Web Api and React.JS to 
 
 > _The version of Web Api dependencies has to match the version .net framework otherwise you will get error(s)._
 
-#### This project was part of my YouTube tutorials so you can also watch the video on YouTube [here](https://www.youtube.com/@coding-aqyanoos/videos).
+#### This project was part of my YouTube tutorials so you can also watch the video on YouTube [here](https://youtu.be/EJgzPBO2juM).
 
-> _Link to my YouTube Channel [https://www.youtube.com/@coding-aqyanoos](https://www.youtube.com/@coding-aqyanoos)_
+> _Link to my YouTube Channel [https://www.youtube.com/@CodingAqyanoos](https://www.youtube.com/@CodingAqyanoos)_
 
 > _Link to my website [https://aqyanoos.com](https://aqyanoos.com)_
 
