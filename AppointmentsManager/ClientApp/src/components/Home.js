@@ -9,9 +9,12 @@ import { getDefault, openModal, filter, getAppointments, notifyUser } from "./Li
 export default function Home(props) {
 
   const [dataList, setDataList] = useState([])
-
   const [refreshData, setRefreshData] = useState(0)
   const [stateListener, setStateListener] = useState(0)
+
+  // NEW STATE FOR SEARCH AND SORT
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortKey, setSortKey] = useState("default");
 
   const filterApp = (e) => {
     let name_ = e.target.name;
@@ -75,6 +78,18 @@ export default function Home(props) {
     }).catch(e => console.log("Error getting data on filter: ", e))
   }
 
+  // LOGIC TO PROCESS THE LIST
+  const processedList = dataList
+    .filter(item => 
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      item.description.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortKey === "importance") return b.levelOfImportance - a.levelOfImportance;
+      if (sortKey === "date") return new Date(a.date) - new Date(b.date);
+      return 0;
+    });
+
 
   useEffect(() => {
     getDefault().then(data => {
@@ -94,6 +109,26 @@ export default function Home(props) {
       <section className="row justify-btw items-center filter">
         <div className="modal-title">Filter</div>
         <div className="row items-center filter-items">
+        {/* Contribution */}
+        <div className="me-15">
+            <label>Search</label> <br/>
+            <input 
+              type="text" 
+              placeholder="Search title..." 
+              onChange={(e) => setSearchTerm(e.target.value)} 
+            />
+        </div>
+
+        {/* NEW SORT DROPDOWN */}
+          <div className="me-15">
+            <label>Sort By</label> <br/>
+            <select onChange={(e) => setSortKey(e.target.value)}>
+              <option value="default">None</option>
+              <option value="importance">Highest Importance</option>
+              <option value="date">Earliest Date</option>
+            </select>
+          </div>
+
           <button className="me-15" onClick={()=> window.location.reload()}>Clear Filters</button>
           <div>
             <label htmlFor="All_f">All</label> <br />
@@ -178,6 +213,12 @@ export default function Home(props) {
           <Delete stateListener={stateListener} refreshApp={setRefreshData} />
         </section>
       </section>
+      {/* UPDATE THE MAPPING TO USE processedList */}
+      {
+        processedList.length === 0 ?
+          <div className="row mt-15 waiting">No matches found <div className="loading">...</div></div> :
+          processedList.map(item => <Appointment item={item} key={item.id} stateListener={setStateListener} />)
+      }
     </main>
   )
 }
