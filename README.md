@@ -13,9 +13,9 @@ This is full feature web application created in ASP.Net Web Api and React.JS to 
 
 #### This project was part of my YouTube tutorials so you can also watch the video on YouTube [here](https://youtu.be/EJgzPBO2juM).
 
-> _Link to my YouTube Channel [https://www.youtube.com/@CodingAqyanoos](https://www.youtube.com/@CodingAqyanoos)_
+> _YouTube Channel [https://www.youtube.com/@Aqyanoos](https://www.youtube.com/@Aqyanoos)_
 
-> _Link to my website [https://aqyanoos.com](https://aqyanoos.com)_
+> _Website [https://aqyanoos.com](https://aqyanoos.com)_
 
 
 ## The landing page
