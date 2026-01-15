@@ -277,6 +277,27 @@ input[type="checkbox"] {
   overflow: hidden;
 }
 
+/* Badge styling for importance */
+.badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Specific Importance Colors */
+.bc-red { background-color: #ff4d4d !important; }
+.bc-gold { background-color: #ffcc00 !important; color: #333; }
+.bc-green { background-color: #2ecc71 !important; }
+
+/* Styling for the search input in the filter bar */
+.filter-items input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .hidden {
   display: none;
 }
